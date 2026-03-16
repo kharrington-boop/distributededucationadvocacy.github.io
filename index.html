@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Distributed Education Advocacy | ESE Advocacy for Florida Families</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B5C7B;
+      --blue: #5BA8CC;
+      --light-blue: #d6edf7;
+      --gold: #C49A3C;
+      --cream: #F9F6F1;
+      --white: #ffffff;
+      --text-dark: #1a2a35;
+      --text-mid: #3d5a6a;
+      --text-light: #6b8fa0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(27, 92, 123, 0.97);
+      backdrop-filter: blur(8px);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-brand .abbr {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-brand .full {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--blue);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: #a8832e !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, var(--navy) 0%, #0f3a52 55%, #0a2233 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(91,168,204,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,154,60,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      color: var(--blue);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: #a8832e; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(91,168,204,0.5);
+      color: var(--blue);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: var(--blue); color: #a0d4ee; transform: translateY(-1px); }
+
+    /* Hero right: stat cards */
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(91,168,204,0.18);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      backdrop-filter: blur(4px);
+      transition: border-color 0.3s;
+    }
+
+    .stat-card:hover { border-color: rgba(91,168,204,0.45); }
+
+    .stat-card .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-card .label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5.5rem 2rem; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.9rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 640px;
+    }
+
+    /* ── WHY PARENTS ── */
+    .why-section { background: var(--white); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .why-card {
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid #e4eef4;
+      background: var(--cream);
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+
+    .why-card:hover {
+      box-shadow: 0 8px 30px rgba(27,92,123,0.1);
+      transform: translateY(-3px);
+    }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .why-icon svg { width: 24px; height: 24px; color: var(--navy); }
+
+    .why-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .why-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── ABOUT ── */
+    .about-section { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .cred-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .credential p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+    .credential p strong { color: var(--navy); font-weight: 600; }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(91,168,204,0.12);
+    }
+
+    .about-card .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 500;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-card .quote::before {
+      content: '\201C';
+      font-size: 4rem;
+      color: var(--blue);
+      opacity: 0.5;
+      line-height: 0;
+      vertical-align: -0.5em;
+      margin-right: 0.2em;
+    }
+
+    .about-card .byline {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+    }
+
+    .disclaimer-note {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    /* ── SERVICES ── */
+    .services-section { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-item {
+      border: 1px solid #dce9f0;
+      border-radius: 10px;
+      padding: 2rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .service-item:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(27,92,123,0.09);
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--blue), var(--navy));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .service-item:hover::before { opacity: 1; }
+
+    .service-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-item p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── CTA BAND ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy), #0c3247);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(91,168,204,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section .btn-primary { position: relative; z-index: 1; }
+
+    .cta-detail {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section { background: var(--cream); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-item {
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-item .label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-item .value {
+      font-size: 1rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .contact-item .value a {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .contact-item .value a:hover { color: var(--blue); text-decoration: underline; }
+
+    /* Contact form */
+    .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .form-field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #ccdde6;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: var(--blue); }
+
+    .form-field textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+
+    .form-submit:hover { background: #0f3a52; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a2233;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    footer .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .footer-tagline {
+      font-size: 0.8rem;
+      color: var(--blue);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    footer .footer-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+      max-width: 600px;
+      margin: 0 auto 1.25rem;
+      line-height: 1.6;
+    }
+
+    footer .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1; min-width: 140px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <span class="abbr">DEA</span>
+      <span class="full">Distributed Education Advocacy</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#why">Why DEA</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Free Discovery Call</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">ESE Advocacy · Florida Families</div>
+        <h1>Your Child's Voice.<br /><em>Our Expertise.</em></h1>
+        <p class="hero-sub">
+          Expert IEP and 504 advocacy for parents navigating Florida's special education system — backed by over a decade in the classroom and four years leading ESE compliance.
+        </p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-primary">Schedule a Discovery Call</a>
+          <a href="#services" class="btn-outline">View Services</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num">10+</div>
+          <div class="label">Years of special education classroom experience in Florida schools</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">4</div>
+          <div class="label">Years as ESE Department Chair, managing IEP compliance & meetings</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">IDEA</div>
+          <div class="label">Deep knowledge of federal & Florida special education law</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PARENTS NEED AN ADVOCATE -->
+  <section class="why-section" id="why">
+    <div class="section-inner fade-in">
+      <div class="section-tag">Why It Matters</div>
+      <h2 class="section-title">The IEP process is complex.<br />You don't have to face it alone.</h2>
+      <p class="section-body">
+        Schools have entire legal and administrative teams. Parents — often overwhelmed and under-informed — sit across the table from them. DEA levels the playing field.
+      </p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Know Your Rights</h3>
+          <p>IDEA and Florida law guarantee your child specific rights. Most parents don't know them — schools count on that. DEA makes sure you do.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>An Experienced Ally in the Room</h3>
+          <p>Having a knowledgeable advocate at your IEP meeting changes the dynamic. We understand the language, the process, and the pressure points.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Documentation That Protects You</h3>
+          <p>We review IEPs, 504 plans, and evaluation reports for compliance, completeness, and accuracy — before you sign anything.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="section-inner">
+      <div class="about-grid fade-in">
+        <div class="about-content">
+          <div class="section-tag">About DEA</div>
+          <h2 class="section-title">Advocacy rooted in real classroom experience.</h2>
+          <p class="section-body">
+            Distributed Education Advocacy was founded by a Florida-certified special education teacher who spent over a decade on the inside — running IEP meetings, managing compliance paperwork, and ensuring legal requirements were met under IDEA and Florida Statutes.
+          </p>
+          <div class="about-credentials">
+            <div class="credential">
+              <div class="cred-dot"></div>
+              <p><strong>10+ Years</strong> as a Florida special education teacher — firsthand knowledge of how schools operate and where gaps occur</p>
+            </div>
+            <div class="credential">
+              <div class="cred-dot"></div>
+              <p><strong>4 Years as ESE Department Chair</strong> at a Florida elementary school, overseeing IEP compliance, timelines, and legal requirements</p>
+            </div>
+            <div class="credential">
+              <div class="cred-dot"></div>
+              <p><strong>Deep familiarity with IDEA, Florida Statutes,</strong> and the practical realities of special education administration</p>
+            </div>
+            <div class="credential">
+              <div class="cred-dot"></div>
+              <p><strong>Serving Florida families</strong> with personalized, parent-centered advocacy support</p>
+            </div>
+          </div>
+          <p class="disclaimer-note">
+            ⚠ DEA is an independent advocacy firm, not a law firm. We do not provide legal representation or legal advice.
+          </p>
+        </div>
+        <div class="about-visual">
+          <div class="about-card">
+            <p class="quote">
+              I spent years at the IEP table as an educator. Now I sit there for families — making sure their children get every service, support, and protection they're entitled to.
+            </p>
+            <div class="byline">Founder, Distributed Education Advocacy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-section" id="services">
+    <div class="section-inner fade-in">
+      <div class="section-tag">What We Offer</div>
+      <h2 class="section-title">ESE Advocacy Services</h2>
+      <p class="section-body">
+        Every family's situation is different. DEA provides focused, expert support at every stage of the special education process.
+      </p>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>IEP Review &amp; Analysis</h3>
+          <p>Comprehensive review of your child's Individualized Education Program for legal compliance, appropriate goals, and service adequacy — before and after IEP meetings.</p>
+        </div>
+        <div class="service-item">
+          <h3>504 Plan Support</h3>
+          <p>Review of existing 504 plans and guidance on whether your child may need additional protections under IDEA, including evaluation requests and accommodations review.</p>
+        </div>
+        <div class="service-item">
+          <h3>IEP Meeting Attendance</h3>
+          <p>We attend IEP meetings with you — asking the right questions, flagging compliance concerns, and making sure school teams follow procedural safeguards.</p>
+        </div>
+        <div class="service-item">
+          <h3>Parent Rights Advising</h3>
+          <p>Guidance on your rights under IDEA and Florida law, including Prior Written Notice, Independent Educational Evaluations (IEEs), dispute resolution, and more.</p>
+        </div>
+        <div class="service-item">
+          <h3>Document Preparation &amp; Correspondence</h3>
+          <p>We draft letters, responses, and formal requests to school districts on your behalf — ensuring the right language, tone, and legal grounding.</p>
+        </div>
+        <div class="service-item">
+          <h3>Ongoing Advocacy Support</h3>
+          <p>Retainer-based support for families navigating extended or complex situations, including recurring meetings, evaluations, and multi-year IEP cycles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-section">
+    <div class="section-inner">
+      <h2>Ready to advocate for your child?</h2>
+      <p>Start with a free 15-minute discovery call — no pressure, no commitment.</p>
+      <a href="#contact" class="btn-primary">Book Your Free Discovery Call</a>
+      <p class="cta-detail">15 minutes · No cost · Confidential</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="section-inner">
+      <div class="contact-grid fade-in">
+        <div class="contact-info">
+          <div class="section-tag">Get in Touch</div>
+          <h2 class="section-title">Let's talk about your child's needs.</h2>
+          <p class="section-body" style="margin-bottom: 2.5rem;">
+            We offer a free 15-minute discovery call to hear your situation and help you understand how DEA can support your family.
+          </p>
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@distributededucationadvocacy.com">info@distributededucationadvocacy.com</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:+15555555555">(555) 555-5555</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Service Area</div>
+            <div class="value">State of Florida</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Discovery Call</div>
+            <div class="value">15 minutes · Free · Confidential</div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="jane@email.com" required />
+            </div>
+            <div class="form-field">
+              <label for="topic">What do you need help with?</label>
+              <select id="topic">
+                <option value="">Select one…</option>
+                <option>IEP review or meeting support</option>
+                <option>504 plan questions</option>
+                <option>Understanding my child's rights</option>
+                <option>Dispute with school district</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="message">Tell us a bit about your situation</label>
+              <textarea id="message" placeholder="Brief overview of what's going on…"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Distributed Education Advocacy</div>
+    <div class="footer-tagline">Your Child's Voice. Our Expertise.</div>
+    <p class="footer-disclaimer">
+      DEA is an independent ESE advocacy firm. We are not a law firm and do not provide legal representation or legal advice. 
+      For legal matters, please consult a licensed special education attorney.
+    </p>
+    <p class="footer-copy">© 2025 Distributed Education Advocacy. All rights reserved. · Serving Florida Families</p>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Form submit placeholder
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Message sent!';
+      btn.style.background = '#2d7a4f';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>
