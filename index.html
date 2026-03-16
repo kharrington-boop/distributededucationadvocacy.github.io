@@ -710,12 +710,17 @@
 
 
     .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .fade-in.visible {
+    .fade-in.animate {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .fade-in.animate.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -727,7 +732,7 @@
   <nav>
     <div class="nav-brand" style="display:flex; align-items:center; gap:0.75rem;">
       <img src="data:image/png;base64,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" alt="Distributed Education Advocacy Logo" style="height:44px; width:auto;" />
-      <span style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:var(--navy); letter-spacing:0.03em; line-height:1.2;">Distributed Education<br>Advocacy</span>
+      <span style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700; color:var(--navy); letter-spacing:0.02em; line-height:1.2;">Distributed Education Advocacy</span>
     </div>
     <ul class="nav-links">
       <li><a href="#why">Why Us</a></li>
@@ -742,7 +747,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-text">
-        <div class="hero-eyebrow">ESE Advocacy · Families Nationwide ·</div>
+        <div class="hero-eyebrow">ESE Advocacy · Families Nationwide</div>
         <h1 style="font-size:clamp(1.4rem,2.5vw,1.9rem); font-weight:700; color:var(--navy); font-family:'Cormorant Garamond',serif; margin-bottom:0.5rem; letter-spacing:0.02em;">Distributed Education Advocacy</h1>
         <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,3.6rem); font-weight:600; color:var(--navy); line-height:1.1; margin-bottom:1.5rem;">Your Child's Voice.<br /><em style="color:var(--blue); font-style:normal;">Our Expertise.</em></h2>
         <p class="hero-sub">
@@ -757,10 +762,6 @@
         <div class="stat-card">
           <div class="num">15+</div>
           <div class="label">Years of experience in the public school setting</div>
-        </div>
-        <div class="stat-card">
-          <div class="num">4</div>
-          <div class="label">Years as ESE Staffing Specialist, overseeing IEP compliance & meetings</div>
         </div>
         <div class="stat-card">
           <div class="num">100%</div>
@@ -970,7 +971,7 @@
     <div class="footer-name">Distributed Education Advocacy</div>
     <div class="footer-tagline">Your Child's Voice. Our Expertise.</div>
     <p class="footer-disclaimer">
-      DEA is an independent ESE advocacy firm. We are not a law firm and do not provide legal representation or legal advice. 
+      Distributed Education Advocacy is an independent ESE advocacy firm. We are not a law firm and do not provide legal representation or legal advice.
       For legal matters, please consult a licensed special education attorney.
     </p>
     <p class="footer-copy">© 2025 Distributed Education Advocacy. All rights reserved. · Serving Families Nationwide</p>
@@ -984,4 +985,13 @@
     }, { threshold: 0.12 });
     fadeEls.forEach(el => observer.observe(el));
 
-    // Form submi
+    // Form submit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = '✓ Message sent!';
+      btn.style.background = '#2d7a4f';
+      btn.disabled = true;
+    }
+  </script>
+</body>
+</html>
