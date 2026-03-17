@@ -15,8 +15,8 @@
       --pale-blue: #dff0f9;
       --gold: #C49A3C;
       --white: #ffffff;
-      --gray-light: #e6f0f5;
-      --gray-mid: #d8e8ef;
+      --gray-light: #d8eaf4;
+      --gray-mid: #c8dde8;
       --text-dark: #1B5C7B;
       --text-mid: #3d6e85;
       --text-body: #445f6d;
@@ -220,6 +220,12 @@
       border-radius: 16px;
       padding: 1.75rem;
       box-shadow: 0 2px 16px rgba(27,92,123,0.07);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .hero-steps:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(27,92,123,0.09);
     }
 
     .hero-steps-label {
@@ -302,7 +308,7 @@
       max-width: 640px;
     }
 
-    .why-section { background: var(--gray-light); }
+    .why-section { background: #f0f4f7; }
 
     .why-grid {
       display: grid;
@@ -316,12 +322,13 @@
       border-radius: 10px;
       border: 1px solid var(--gray-mid);
       background: var(--white);
-      transition: box-shadow 0.25s, transform 0.2s;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
     }
 
     .why-card:hover {
-      box-shadow: 0 8px 30px rgba(27,92,123,0.1);
-      transform: translateY(-3px);
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(27,92,123,0.09);
+      transform: translateY(-2px);
     }
 
     .why-icon {
@@ -346,7 +353,7 @@
 
     .why-card p { font-size: 0.9rem; color: var(--text-body); line-height: 1.7; }
 
-    .about-section { background: var(--white); }
+    .about-section { background: #f0f4f7; }
 
     .about-grid {
       display: grid;
@@ -386,6 +393,13 @@
       overflow: hidden;
       width: 70%;
       max-width: 260px;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+
+    .about-card:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(27,92,123,0.09);
+      transform: translateY(-2px);
     }
 
     .about-card::before {
@@ -436,7 +450,7 @@
       line-height: 1.5;
     }
 
-    .services-section { background: var(--gray-light); }
+    .services-section { background: #f0f4f7; }
 
     .services-grid {
       display: grid;
@@ -482,7 +496,7 @@
 
     .service-item p { font-size: 0.88rem; color: var(--text-body); line-height: 1.7; }
 
-    .advocate-section { background: var(--white); }
+    .advocate-section { background: #f0f4f7; }
 
     .advocate-section .section-body {
       max-width: 780px;
@@ -494,7 +508,7 @@
       margin-top: 1.5rem;
     }
 
-    .faq-section { background: var(--gray-light); }
+    .faq-section { background: #f0f4f7; }
 
     .faq-list {
       margin-top: 3rem;
@@ -508,6 +522,13 @@
       border: 1px solid var(--gray-mid);
       border-radius: 10px;
       padding: 2rem 2.5rem;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--blue);
+      box-shadow: 0 6px 24px rgba(27,92,123,0.09);
+      transform: translateY(-2px);
     }
 
     .faq-item h3 {
@@ -525,9 +546,9 @@
     }
 
     .cta-section {
-      background: var(--pale-blue);
-      border-top: 1px solid var(--light-blue);
-      border-bottom: 1px solid var(--light-blue);
+      background: #edf4f8;
+      border-top: 1px solid #dde8ef;
+      border-bottom: 1px solid #dde8ef;
       padding: 5rem 2rem;
       text-align: center;
       position: relative;
@@ -570,7 +591,7 @@
       z-index: 1;
     }
 
-    .contact-section { background: var(--white); }
+    .contact-section { background: #f0f4f7; }
 
     .contact-grid {
       display: grid;
@@ -616,12 +637,12 @@
     .form-field select {
       width: 100%;
       padding: 0.75rem 1rem;
-      border: 1.5px solid var(--gray-mid);
+      border: 1.5px solid #d4d8db;
       border-radius: 6px;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.92rem;
       color: var(--text-dark);
-      background: var(--gray-light);
+      background: #f5f6f7;
       transition: border-color 0.2s;
       outline: none;
     }
@@ -650,8 +671,8 @@
     .form-submit:hover { background: #0f3a52; }
 
     footer {
-      background: var(--gray-light);
-      border-top: 1px solid var(--gray-mid);
+      background: #f0f4f7;
+      border-top: 1px solid #dde6ec;
       padding: 2.5rem 2rem;
       text-align: center;
     }
@@ -729,11 +750,11 @@
       color: var(--text-light);
     }
 
-    body { background: linear-gradient(180deg, #ffffff 0%, #c8d4de 40%, #b8c8d6 100%); background-attachment: fixed; }
-    .why-section { background: rgba(240,243,246,0.6); }
-    .about-section { background: rgba(255,255,255,0.5); }
-    .services-section { background: rgba(236,241,245,0.6); }
-    .contact-section { background: rgba(255,255,255,0.4); }
+    body { background: linear-gradient(180deg, #ffffff 0%, #dde7ed 40%, #cfdbe4 100%); background-attachment: fixed; }
+    .why-section { background: #f0f4f7; }
+    .about-section { background: #f0f4f7; }
+    .services-section { background: #f0f4f7; }
+    .contact-section { background: #f0f4f7; }
 
     .fade-in {
       opacity: 1;
@@ -753,10 +774,10 @@
 
     /* MEMBERSHIPS */
     .memberships-section {
-      background: var(--gray-light);
+      background: #f0f4f7;
       padding: 3.5rem 2rem;
-      border-top: 1px solid var(--gray-mid);
-      border-bottom: 1px solid var(--gray-mid);
+      border-top: 1px solid #dde6ec;
+      border-bottom: 1px solid #dde6ec;
     }
 
     .memberships-label {
@@ -1263,7 +1284,7 @@
   <!-- CTA BAND -->
   <section class="cta-section">
     <div class="section-inner">
-      <div class="section-tag" style="color:var(--blue); background:rgba(91,168,204,0.15);">Free consultation</div>
+      <div class="section-tag" style="color:var(--blue); background:none; text-align:left;">Free Consultation</div>
       <h2>Not sure where to start?</h2>
       <p>We'll listen to your concerns, learn about your child's situation, and give you an honest picture of how we can help. No pressure, no jargon. Just a real conversation about what your family needs.</p>
       <a href="YOUR_SCHEDULING_LINK_HERE" target="_blank" class="btn-primary">Schedule Your Free Call Today</a>
