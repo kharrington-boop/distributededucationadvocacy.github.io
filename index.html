@@ -214,36 +214,64 @@
 
     .btn-outline:hover { background: var(--pale-blue); transform: translateY(-1px); }
 
-    .hero-stats { display: flex; flex-direction: column; gap: 1.25rem; }
-
-    .stat-card {
+    .hero-steps {
       background: var(--white);
       border: 1px solid var(--gray-mid);
-      border-radius: 12px;
-      padding: 1.5rem 1.75rem;
-      box-shadow: 0 2px 12px rgba(27,92,123,0.06);
-      transition: border-color 0.3s, box-shadow 0.3s;
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 16px rgba(27,92,123,0.07);
     }
 
-    .stat-card:hover {
-      border-color: var(--blue);
-      box-shadow: 0 4px 20px rgba(27,92,123,0.12);
+    .hero-steps-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
     }
 
-    .stat-card .num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.6rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 0.25rem;
+    .hero-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
-    .stat-card .label {
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
       font-size: 0.82rem;
-      color: var(--text-light);
-      font-weight: 400;
-      line-height: 1.5;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .step-body { flex: 1; }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .step-connector {
+      width: 1px;
+      height: 1.25rem;
+      background: var(--gray-mid);
+      margin: 0.5rem 0 0.5rem 15px;
     }
 
     section { padding: 5.5rem 2rem; }
@@ -658,8 +686,7 @@
 
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-stats { flex-direction: row; flex-wrap: wrap; }
-      .stat-card { flex: 1; min-width: 140px; }
+      .hero-steps { margin-top: 0; }
       .why-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid { grid-template-columns: 1fr; }
@@ -1054,14 +1081,30 @@
           <a href="#services" class="btn-outline">View Services</a>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="num">15+</div>
-          <div class="label">Years of experience in the public school setting</div>
+      <div class="hero-steps">
+        <div class="hero-steps-label">How It Works</div>
+        <div class="hero-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Schedule a Free Consultation</div>
+            <div class="step-desc">15 minutes. Tell us what's going on. We listen, ask questions, and let you know how we can help.</div>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="num">100%</div>
-          <div class="label">Dedicated to helping families understand and protect their child's rights</div>
+        <div class="step-connector"></div>
+        <div class="hero-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">We Review &amp; Prepare</div>
+            <div class="step-desc">We dig into your child's records, plans, and school communications so we can show up prepared and ready to work alongside the team.</div>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+        <div class="hero-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">We Advocate, Together</div>
+            <div class="step-desc">We sit at the table with you. We speak the language of the school and interpret it for you. We make sure your child is receiving the proper support. We are with you every step of the way.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1190,7 +1233,7 @@
       <div class="section-tag">What We Do</div>
       <h2 class="section-title">ESE Advocacy Services</h2>
       <p class="section-body">
-        Every engagement starts with a free 15-minute discovery call. From there, we work alongside you to review records, prepare for meetings, and make sure your child's educational program actually reflects their needs. Our approach is collaborative. We work with school teams, not against them. We don't back down when your child's rights are at stake.
+        Every engagement starts with a free 15-minute consultation. From there, we work alongside you to review records, prepare for meetings, and make sure your child's educational program actually reflects their needs. Our approach is collaborative. We work with school teams, not against them. We don't back down when your child's rights are at stake.
       </p>
       <div class="services-grid">
         <div class="service-item">
@@ -1220,7 +1263,7 @@
   <!-- CTA BAND -->
   <section class="cta-section">
     <div class="section-inner">
-      <div class="section-tag" style="color:var(--blue); background:rgba(91,168,204,0.15);">Free Discovery Call</div>
+      <div class="section-tag" style="color:var(--blue); background:rgba(91,168,204,0.15);">Free consultation</div>
       <h2>Not sure where to start?</h2>
       <p>We'll listen to your concerns, learn about your child's situation, and give you an honest picture of how we can help. No pressure, no jargon. Just a real conversation about what your family needs.</p>
       <a href="YOUR_SCHEDULING_LINK_HERE" target="_blank" class="btn-primary">Schedule Your Free Call Today</a>
@@ -1336,7 +1379,7 @@
         <div class="brand-name">Distributed Education Advocacy</div>
       </div>
       <h2>Client Portal</h2>
-      <p>Sign in with the credentials provided after your discovery call.</p>
+      <p>Sign in with the credentials provided after your consultation.</p>
       <div class="modal-field">
         <label>EMAIL ADDRESS</label>
         <input type="email" id="loginEmail" placeholder="your@email.com" />
@@ -1346,7 +1389,7 @@
         <input type="password" id="loginPassword" placeholder="••••••••" />
       </div>
       <button class="modal-btn" onclick="doLogin()">Sign In to Portal</button>
-      <p class="modal-note">Don't have an account yet? Schedule your free 15-minute discovery call and we'll set one up for you.</p>
+      <p class="modal-note">Don't have an account yet? Schedule your free 15-minute consultation and we'll set one up for you.</p>
     </div>
   </div>
 
