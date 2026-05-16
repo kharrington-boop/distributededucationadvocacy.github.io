@@ -662,6 +662,98 @@
       color: var(--text-light);
     }
 
+    /* STICKY CONSULTATION BAR */
+    .sticky-cta-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      padding: 0.85rem 2rem;
+      box-shadow: 0 -2px 16px rgba(27,92,123,0.18);
+    }
+
+    .sticky-cta-bar .sticky-cta-text {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.88rem;
+      font-weight: 400;
+    }
+
+    .sticky-cta-bar .sticky-cta-btn {
+      background: var(--blue);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      border-radius: 5px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .sticky-cta-bar .sticky-cta-btn:hover {
+      background: #4a94b8;
+      transform: translateY(-1px);
+    }
+
+    .sticky-cta-bar .sticky-cta-close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 0.25rem;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .sticky-cta-bar .sticky-cta-close:hover { color: #fff; }
+
+    body { padding-bottom: 60px; }
+
+    /* FORM CONFIRMATION */
+    .form-success {
+      display: none;
+      background: #e8f4ea;
+      border: 1.5px solid #6db87a;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .form-success .success-icon {
+      width: 52px; height: 52px;
+      background: #6db87a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .form-success .success-icon svg {
+      width: 26px; height: 26px;
+      color: #fff;
+      stroke: #fff;
+    }
+
+    .form-success h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      color: #2d6b38;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-success p {
+      font-size: 0.88rem;
+      color: #3d6b44;
+      line-height: 1.6;
+    }
+
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-stats { flex-direction: row; flex-wrap: wrap; }
@@ -1063,7 +1155,7 @@
           </p>
           <div class="contact-item">
             <div class="label">Email</div>
-            <div class="value"><a href="/cdn-cgi/l/email-protection#375e59515877535e4443455e55424352535253425456435e5859565341585456544e1954585a"><span class="__cf_email__" data-cfemail="a7cec9c1c8e7c3ced4d3d5cec5d2d3c2c3c2c3d2c4c6d3cec8c9c6c3d1c8c4c6c4de89c4c8ca">[email&#160;protected]</span></a></div>
+            <div class="value"><a href="mailto:kharrington@distributedadvocacy.com">kharrington@distributedadvocacy.com</a></div>
           </div>
           <div class="contact-item">
             <div class="label">Phone</div>
@@ -1079,18 +1171,20 @@
           </div>
         </div>
         <div class="contact-form-wrap">
-          <form class="contact-form" onsubmit="handleSubmit(event)">
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/xojbaely" method="POST">
+            <input type="hidden" name="_replyto" id="hidden-email" />
+            <input type="hidden" name="_subject" value="New inquiry — Distributed Education Advocacy" />
             <div class="form-field">
               <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="Jane Smith" required />
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
             </div>
             <div class="form-field">
               <label for="email">Email Address</label>
-              <input type="email" id="email" placeholder="jane@email.com" required />
+              <input type="email" id="email" name="email" placeholder="jane@email.com" required oninput="document.getElementById('hidden-email').value=this.value" />
             </div>
             <div class="form-field">
               <label for="topic">What do you need help with?</label>
-              <select id="topic">
+              <select id="topic" name="topic">
                 <option value="">Select one…</option>
                 <option>IEP review or meeting support</option>
                 <option>504 plan questions</option>
@@ -1101,10 +1195,17 @@
             </div>
             <div class="form-field">
               <label for="message">Tell us about your situation</label>
-              <textarea id="message" placeholder="Brief overview of what's going on…"></textarea>
+              <textarea id="message" name="message" placeholder="Brief overview of what's going on…"></textarea>
             </div>
-            <button type="submit" class="form-submit">Send Message →</button>
+            <button type="submit" class="form-submit" id="form-submit-btn">Send Message →</button>
           </form>
+          <div class="form-success" id="form-success">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h4>Message received!</h4>
+            <p>Thank you for reaching out. We will be in touch within one business day.<br/>In the meantime, feel free to <a href="https://outlook.office.com/bookwithme/user/2cb48b718ef84b46b96f758eefca673e@distributedadvocacy.com/meetingtype/36LkVHKlMkCz__56U22PEQ2?anonymous&ismsaljsauthenabled&ep=mcard" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;">schedule a free consultation</a> directly.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1122,12 +1223,48 @@
     <p class="footer-copy">© 2025 Distributed Education Advocacy. All rights reserved. · Serving Families Nationwide</p>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert('Thank you for your message! We will be in touch shortly.');
+  <script>
+    // ── Contact form: Formspree AJAX submit ──────────────────────────────────
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('form-submit-btn');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const formId = contactForm.action.split('/').pop();
+        if (formId === 'xojbaely' && false) // live form active {
+          // Demo mode (Formspree not yet configured)
+          contactForm.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+          return;
+        }
+
+        try {
+          const data = new FormData(contactForm);
+          const res = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            contactForm.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+          } else {
+            btn.textContent = 'Send Message →';
+            btn.disabled = false;
+            alert('Something went wrong. Please email us directly at kharrington@distributedadvocacy.com');
+          }
+        } catch(err) {
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          alert('Unable to send. Please email us at kharrington@distributedadvocacy.com');
+        }
+      });
     }
 
+    // ── Intersection observer for fade-in animations ─────────────────────────
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1137,6 +1274,15 @@
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.fade-in.animate').forEach(el => observer.observe(el));
+
+    // ── Sticky CTA bar dismiss ────────────────────────────────────────────────
+    function dismissStickyCta() {
+      const bar = document.getElementById('sticky-cta-bar');
+      if (bar) {
+        bar.style.display = 'none';
+        document.body.style.paddingBottom = '0';
+      }
+    }
   </script>
 
   <!-- CLIENT LOGIN MODAL -->
@@ -1167,6 +1313,15 @@
         </a>
       </div>
     </div>
+  </div>
+
+
+  <!-- STICKY CONSULTATION BAR -->
+  <div class="sticky-cta-bar" id="sticky-cta-bar">
+    <span class="sticky-cta-text">Ready to get started?</span>
+    <a href="https://outlook.office.com/bookwithme/user/2cb48b718ef84b46b96f758eefca673e@distributedadvocacy.com/meetingtype/36LkVHKlMkCz__56U22PEQ2?anonymous&ismsaljsauthenabled&ep=mcard"
+       target="_blank" rel="noopener" class="sticky-cta-btn">Schedule a Free Consultation</a>
+    <button class="sticky-cta-close" onclick="dismissStickyCta()" aria-label="Dismiss">&times;</button>
   </div>
 
 </body>
