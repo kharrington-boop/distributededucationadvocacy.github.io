@@ -519,27 +519,6 @@
       text-align: center;
     }
 
-    .bookings-iframe-wrap {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(27,92,123,0.1);
-      background: var(--white);
-      margin-bottom: 1.5rem;
-    }
-
-    .bookings-iframe-wrap iframe {
-      display: block;
-      width: 100%;
-      border: none;
-      min-height: 620px;
-    }
-
-    .bookings-fallback {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-top: 0.75rem;
-    }
-
     .bookings-fallback a {
       color: var(--navy);
       font-weight: 600;
@@ -692,8 +671,6 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .nav-links { display: none; }
-      .bookings-container { padding: 1.25rem; }
-      .bookings-iframe-wrap iframe { min-height: 780px; }
       .bookings-details { gap: 1.25rem; }
     }
 
@@ -938,20 +915,6 @@
       </div>
 
       <div class="bookings-container">
-        <div class="bookings-iframe-wrap">
-
-          <iframe
-            src="https://outlook.office.com/bookwithme/user/2cb48b718ef84b46b96f758eefca673e@distributedadvocacy.com/meetingtype/36LkVHKlMkCz__56U22PEQ2?anonymous&ismsaljsauthenabled&ep=mcard"
-            title="Schedule a Free Consultation with Distributed Education Advocacy"
-            scrolling="yes"
-            style="min-height: 620px; width: 100%;">
-          </iframe>
-        </div>
-
-        <div class="bookings-fallback">
-          Having trouble with the calendar above?
-          <a href="https://outlook.office.com/bookwithme/user/2cb48b718ef84b46b96f758eefca673e@distributedadvocacy.com/meetingtype/36LkVHKlMkCz__56U22PEQ2?anonymous&ismsaljsauthenabled&ep=mcard" target="_blank" rel="noopener">Open the scheduling page in a new window →</a>
-        </div>
 
         <div class="bookings-details">
           <div class="bookings-detail-item">
@@ -971,6 +934,17 @@
             Phone or Video
           </div>
         </div>
+
+        <div style="margin-top: 2.5rem;">
+          <a href="https://outlook.office.com/bookwithme/user/2cb48b718ef84b46b96f758eefca673e@distributedadvocacy.com/meetingtype/36LkVHKlMkCz__56U22PEQ2?anonymous&ismsaljsauthenabled&ep=mcard"
+             target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;">
+            View Available Times &amp; Schedule
+          </a>
+          <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-light);">
+            Opens in a new window. No account required.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
