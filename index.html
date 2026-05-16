@@ -1233,14 +1233,6 @@
         btn.textContent = 'Sending…';
         btn.disabled = true;
 
-        const formId = contactForm.action.split('/').pop();
-        if (formId === 'xojbaely' && false) // live form active {
-          // Demo mode (Formspree not yet configured)
-          contactForm.style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-          return;
-        }
-
         try {
           const data = new FormData(contactForm);
           const res = await fetch(contactForm.action, {
